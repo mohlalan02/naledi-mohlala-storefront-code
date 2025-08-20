@@ -18,7 +18,7 @@ This project is built using **Create React App**. It serves as a starting point 
 Clone this repository and install dependencies:
 
 ```bash
-git clone https://github.com/DVT/challenge-react-storefront-naledi-mohlala.git
+git clone https://github.com/mohlalan02/naledi-mohlala-storefront-code
 cd your-repo-name
 npm install
 
