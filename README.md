@@ -75,15 +75,15 @@ React DOM – for rendering components in the DOM.
 
 React Scripts – configuration and scripts used by Create React App.
 
-React Router DOM – for routing (if applicable).
+React Router DOM – for routing
 
-Axios – for HTTP requests (if used).
+Axios – for HTTP requests
 
 TypeScript – for static typing (if your project uses TypeScript).
 
 This project includes a simple authentication setup using React Context to manage user login state.
 
-username: user
-password: password
+username: user1
+password: password1
 
 
