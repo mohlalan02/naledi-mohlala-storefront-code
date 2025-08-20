@@ -15,11 +15,24 @@ export const ErrorScreen: React.FC<ErrorScreenProps> = ({
   onRetry,
 }) => {
   return (
+
     <div className="error-screen" role="alert">
-      {iconSrc && <img src={iconSrc} alt="Error" className="error-icon" />}
-      <h2>{title}</h2>
-      <p>{message}</p>
-      {onRetry && (
+
+      { iconSrc && 
+        <img src={iconSrc} 
+          alt="Error" 
+          className="error-icon" />
+      }
+
+      <h2>
+        { title }
+      </h2>
+
+      <p>
+        { message }
+      </p>
+
+      { onRetry && (
         <button className="retry-button" onClick={onRetry}>
           Retry
         </button>

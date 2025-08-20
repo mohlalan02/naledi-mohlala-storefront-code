@@ -1,6 +1,6 @@
-import CartItem from '../components/CartItem';
+import CartItem from '../../components/CartItem/CartItem';
 import React, { useCallback, useMemo } from 'react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../../context/CartContext';
 import './CartPage.css';
 
 export const CartPage: React.FC = () => {

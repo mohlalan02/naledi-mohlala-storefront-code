@@ -1,15 +1,44 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ProductsPage } from './pages/ProductsPage';
-import { CartPage } from './pages/CartPage';
-import { LoginPage } from './pages/LoginPage';
-import { CartProvider } from './context/CartContext';
-import { AuthProvider } from './context/AuthContext';
-import { PrivateRoute } from './components/PrivateRoute';
-import { TopBar } from './components/TopBar';
+import React, { 
+  Suspense 
+} from 'react';
+
+import { 
+  BrowserRouter as Router, 
+  Routes, Route 
+} from 'react-router-dom';
+
+import { 
+  ProductsPage 
+} from './pages/ProductPage/ProductsPage';
+
+import { 
+  CartPage 
+} from './pages/CartPage/CartPage';
+
+import { 
+  LoginPage 
+} from './pages/LoginPage/LoginPage';
+
+import { 
+  CartProvider 
+} from './context/CartContext';
+
+import { 
+  AuthProvider 
+} from './context/AuthContext';
+
+import { 
+  PrivateRoute 
+} from './components/PrivateRoute';
+
+import { 
+  TopBar 
+} from './components/TopBar/TopBar';
 
 function App() {
+
   return (
+
       <AuthProvider>
         <CartProvider>
           <Router>

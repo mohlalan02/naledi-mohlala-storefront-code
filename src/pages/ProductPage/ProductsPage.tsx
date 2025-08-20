@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { fetchProducts } from '../services/api';
-import { Product } from '../types';
-import { ProductCard } from '../components/ProductCard';
-import { ErrorScreen } from '../Shared/ErrorScreen';
+import { fetchProducts } from '../../services/api';
+import { Product } from '../../types';
+import { ProductCard } from '../../components/ProductCard/ProductCard';
+import { ErrorScreen } from '../../Shared/ErrorScreen';
 import errorIcon from '../assets/images/error-icon.png';
 import './ProductsPage.css';
 

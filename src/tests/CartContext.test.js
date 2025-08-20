@@ -1,13 +1,12 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react';
-import { CartProvider, useCart } from './CartContext';
-import { Product } from '../types';
+import { CartProvider, useCart } from '../context/CartContext';
 
-const wrapper = ({ children }: { children: React.ReactNode }) => (
+const wrapper = ({ children }) => (
   <CartProvider>{children}</CartProvider>
 );
 
-const sampleProduct: Product = {
+const sampleProduct = {
   id: 1,
   title: 'Test Product',
   price: 99.99,

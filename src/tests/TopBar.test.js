@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { TopBar } from './TopBar';
+import { TopBar } from '../components/TopBar/TopBar';
 import { CartProvider } from '../context/CartContext';
 import { AuthProvider } from '../context/AuthContext';
 import { MemoryRouter } from 'react-router-dom';
