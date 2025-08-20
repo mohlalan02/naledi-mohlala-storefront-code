@@ -4,7 +4,7 @@ import { fetchProducts } from '../../services/api';
 import { Product } from '../../types';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { ErrorScreen } from '../../Shared/ErrorScreen';
-import errorIcon from '../assets/images/error-icon.png';
+import errorIcon from '../../assets/images/error-icon.png';
 import './ProductsPage.css';
 
 export const ProductsPage: React.FC = () => {

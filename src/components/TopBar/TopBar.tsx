@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import './TopBar.css';
-import cartIcon from '../assets/images/icon-cart.svg';
+import cartIcon from '../../assets/images/icon-cart.svg';
 
 export const TopBar: React.FC = () => {
   const { cart } = useCart();
