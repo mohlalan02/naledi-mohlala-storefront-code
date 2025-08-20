@@ -17,7 +17,7 @@ const CartItem: React.FC<CartItemProps> = React.memo(
     price, 
     quantity, 
     image, 
-  onRemove }) => {
+    onRemove }) => {
 
     return (
 

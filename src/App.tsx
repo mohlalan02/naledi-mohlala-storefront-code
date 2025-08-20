@@ -4,7 +4,8 @@ import React, {
 
 import { 
   BrowserRouter as Router, 
-  Routes, Route 
+  Routes, 
+  Route 
 } from 'react-router-dom';
 
 import { 
@@ -14,6 +15,10 @@ import {
 import { 
   CartPage 
 } from './pages/CartPage/CartPage';
+
+import { 
+  CheckoutPage 
+} from './components/Checkout/Checkout';
 
 import { 
   LoginPage 
@@ -39,36 +44,43 @@ function App() {
 
   return (
 
-      <AuthProvider>
-        <CartProvider>
-          <Router>
-            <TopBar />
-            <Suspense fallback={<div>Loading...</div>}>
-              <Routes>
-                <Route path="/login" element={<LoginPage />} />
-                <Route
-                  path="/"
-                  element={
-                    <PrivateRoute>
-                      <ProductsPage />
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path="/cart"
-                  element={
-                    <PrivateRoute>
-                      <CartPage />
-                    </PrivateRoute>
-                  }
-                />
-              </Routes>
-            </Suspense>
-          </Router>
-        </CartProvider>
-      </AuthProvider>
+    <AuthProvider>
+      <CartProvider>
+        <Router>
+          <TopBar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <ProductsPage />
+                  </PrivateRoute>
+                } />
+
+              <Route
+                path="/cart"
+                element={
+                  <PrivateRoute>
+                    <CartPage />
+                  </PrivateRoute>
+                } />
+
+              <Route
+                path="/checkout"
+                element={
+                  <PrivateRoute>
+                    <CheckoutPage />
+                  </PrivateRoute>
+                } />
+            </Routes>
+          </Suspense>
+        </Router>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 
 export default App;
-
