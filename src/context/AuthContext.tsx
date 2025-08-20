@@ -2,14 +2,20 @@ import React, {
   createContext, 
   useContext, 
   useState, 
-  ReactNode } from 'react';
+  ReactNode 
+} from 'react';
 
 import { 
   mockAuthService 
 } from '../mockAuthService';
 
+interface User {
+  username: string;
+}
+
 interface AuthContextType {
-  user: string | null;
+  user: User | null;
+  isLoggedIn: boolean;
   login: (username: string, password: string) => boolean;
   logout: () => void;
 }
@@ -18,15 +24,20 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
-  const login = (username: string, password: string) => {
+  const login = (username: string, password: string): boolean => {
 
     const loggedInUser = mockAuthService.login(username, password);
 
     if (loggedInUser) {
 
-      setUser(loggedInUser.username);
+      setUser(loggedInUser);
+      localStorage.setItem('user', JSON.stringify(loggedInUser));
+      localStorage.setItem('isLoggedIn', 'true');
       return true;
     }
     return false;
@@ -34,19 +45,23 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const logout = () => {
 
-    mockAuthService.logout();
     setUser(null);
+    localStorage.removeItem('user');
+    localStorage.removeItem('isLoggedIn');
+    mockAuthService.logout();
   };
+
+  const isLoggedIn = !!user;
 
   return (
 
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoggedIn, login, logout }}>
       { children }
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
+export const useAuth = (): AuthContextType => {
 
   const context = useContext(AuthContext);
 

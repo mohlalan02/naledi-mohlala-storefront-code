@@ -5,6 +5,7 @@ import { Product } from '../../types';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { ErrorScreen } from '../../Shared/ErrorScreen';
 import errorIcon from '../../assets/images/error-icon.png';
+import { Loader } from '../../components/Loader/Loader';
 import './ProductsPage.css';
 
 export const ProductsPage: React.FC = () => {
@@ -19,8 +20,7 @@ export const ProductsPage: React.FC = () => {
     queryFn: fetchProducts,
   });
 
-  if (isLoading) 
-    return <p>Loading products...</p>;
+  if (isLoading) return <Loader />;
 
   if (isError)
 

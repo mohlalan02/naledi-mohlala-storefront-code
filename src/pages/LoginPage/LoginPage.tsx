@@ -1,34 +1,45 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import React, { 
+  useState 
+} from 'react';
+
+import { 
+  useNavigate 
+} from 'react-router-dom';
+
+import { 
+  useAuth 
+} from '../../context/AuthContext';
+
 import './LoginPage.css';
 
 export const LoginPage: React.FC = () => {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
     e.preventDefault();
+
     const success = login(username, password);
 
-    if (success) navigate('/');
-    else setError('Invalid credentials');
+    if (success) {
+      navigate('/');
+    } else {
+      setError('Invalid credentials');
+    }
   };
 
   return (
-  
+
     <div className="login-container" role="main" aria-labelledby="login-heading">
 
       <div className="banner">
-
-        <h1 id="login-heading">
-          Storefront
-        </h1>
+        <h1 id="login-heading">Storefront</h1>
       </div>
 
       <div className="login-form" role="form" aria-label="Login Form">
@@ -38,10 +49,9 @@ export const LoginPage: React.FC = () => {
         </h2>
 
         { error && (
-
           <p className="error" role="alert" aria-live="assertive">
             { error }
-          </p> 
+          </p>
         )}
 
         <form onSubmit={handleSubmit}>
