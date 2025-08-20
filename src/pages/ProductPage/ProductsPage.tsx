@@ -12,9 +12,9 @@ export const ProductsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const { data: products = [],
-     isLoading, isError,
-      error, refetch 
-    } = useQuery<Product[], Error>({
+    isLoading, isError,
+    error, refetch 
+  } = useQuery<Product[], Error>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
